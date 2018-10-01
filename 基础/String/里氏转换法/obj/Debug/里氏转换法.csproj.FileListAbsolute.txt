@@ -1,0 +1,5 @@
+C:\Users\17100\Desktop\基础\String\里氏转换法\bin\Debug\里氏转换法.exe.config
+C:\Users\17100\Desktop\基础\String\里氏转换法\bin\Debug\里氏转换法.exe
+C:\Users\17100\Desktop\基础\String\里氏转换法\bin\Debug\里氏转换法.pdb
+C:\Users\17100\Desktop\基础\String\里氏转换法\obj\Debug\里氏转换法.exe
+C:\Users\17100\Desktop\基础\String\里氏转换法\obj\Debug\里氏转换法.pdb

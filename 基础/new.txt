@@ -1,0 +1,183 @@
+      .NET Core 是.NET Framework的新一代版本，是微软开发的第一个官方版本，具有跨平台 (Windows、Mac OSX、Linux) 能力的应用程序开发框架 (Application Framework)，未来也将会支持 FreeBSD 与 Alpine 平台，也是微软在一开始发展时就开源的软件平台 [1]  ，它经常也会拿来和现有的开源 .NET 平台 Mono 比较。
+由于 .NET Core 的开发目标是跨平台的 .NET 平台，因此 .NET Core 会包含 .NET Framework 的类库，但与 .NET Framework 不同的是 .NET Core 采用包化 (Packages) 的管理方式，应用程序只需要获取需要的组件即可，与 .NET Framework 大包式安装的作法截然不同，同时各包亦有独立的版本线 (Version line)，不再硬性要求应用程序跟随主线版本。
+.NET Core 项目的主要目标有 [2]  ：
+支持或可以移转 (port) 到更多的操作系统平台与芯片架构 (也就是未来项目会跨出 x86 平台)。
+具有引人注目的性能与高可靠度。
+开发人员能快速与直接的获取 .NET Core 开发环境。
+在直觉与具生产力的情况下建造应用程序，使用文件，示例与 NuGet 组件。
+
+软件名称
+    .net core 
+开发商
+    微软 
+
+软件平台
+    Windows、Mac OSX、Linux 
+软件语言
+    英文 
+功    能
+    RyuJIT、Core CLR、Core RT等 
+
+目录
+
+    1 核心功能
+    2 包管理
+    3 应用程序类型
+    4 关系
+    5 支持操作系统
+
+核心功能
+编辑
+.NET Core 是由许多项目所组成，除了基本的类库(Core FX) 之外，也包含采用 RyuJIT 编译的运行平台 Core CLR、编译器平台.NET Compiler Platform、采用 AOT 编译技术运行最优化的包 Core RT (.NET Core Runtime)，以及跨平台的 MSIL 编译器 LLILC (LLVM-based MSIL Compiler) 等项目。
+同时，微软也发展了一个建置技术文件的平台docfx， [3]  并运用于 .NET Core 的文件网站。
+RyuJIT
+RyuJIT 是微软发展的新式即地编译器 (Just-in-Time Compiler)，用以替换现有的 .NET Framework 的 JIT 以及 JIT64 即地编译器，依据微软公布的测试报告，RyuJIT 的性能较前一代的 JIT 提升约 25%，并支持SIMD(Single Instruction, Multiple Data) 的技术。RyuJIT 同时应用于 .NET Framework 4.6 以及 .NET Core [4]  。
+Core CLR
+Core CLR 移植 .NET Framework 的 CLR 的功能，包含核心程序库 mscorlib、JIT 编译器、垃圾收集器 (GC) 以及其他运行 MSIL 所需要的运行期环境。
+Core RT
+Core RT 是以AOT (Ahead-of-time) 编译方式为主的核心功能，在 .NET Core 内称为 Core RT，在 UWP 则是称为 .NET Native。
+Core RT 会在建造时期 (非运行期) 在编译时将 MSIL 转换成平台本地的机器码，以获取较短的引导时间 (JIT 采用的是运行时期编译，使得引导时间拉长)，以及内存用量减少的优点。Core RT 会在不同的平台使用不同的 AOT 技术：
+
+    Windows 上使用的是 .NET Native。
+    Mac OS 与 Linux 上使用的是 LLILC (同时支持 JIT 和 AOT)。
+
+LLILC
+LLILC (LLVM-based MSILCompiler，英文发音为 "lilac") 是 .NET Core 在非 Windows 平台的 MSIL 编译器 [5]  ，基于 ECMA-335 (Common Language Infrastructure) 的标准将 MSIL 编译成原生码运行，适用于可运行 LLVM 的操作系统，例如 Mac OSX 与 Linux 操作系统。
+LLILC 同时支持 JIT (内含 RyuJIT 的实现) 以及 AOT (未来将开始支持) 的编译方式。
+Roslyn
+.NET Compiler Platform (项目代码为 Roslyn) 是将 .NET 平台的编译架构标准化的平台，它可提供程序管理工具 (如集成开发环境) 相当多的情报，用以发展有助于编写程序与管理程序结构所需要的功能，例如类型信息、语法结构、参考链接、语义、编译器、自动化、错误回报等等功能，只要是遵循 CLI 标准的编程语言，都可以利用 .NET Compiler Platform 实现出编译器，让程序管理工具能实现如语法提示、语法自动完成、关键字高亮等可视化能力。
+.NET Compiler Platform 可同时支持 .NET Framework 4.6 以上版本，.NET Core 也原生支持。
+包管理
+编辑
+主条目：ASP.NET Core §项目系统
+.NET Core 的类库采用 NuGet 包化的架构，应用程序只需要使用 project.json 的 dependencies 区块加入指定包版本的参考，就能获得该包的功能，与以往 .NET Framework 大包式的提供方法完全不同。.NET Core 团队宣布己经有 98% 的 .NET Framework 主要类库移转到 .NET Core 平台 [6]  。
+例如下列 project.json 内容，可直接加入 .NET Standard Library (v1.0.0-rc2-23901) 的参考。
+	
+{
+    "version": "1.0.0-*",
+    "compilationOptions": {
+        "emitEntryPoint": true
+    },
+    "dependencies": {
+        "NETStandard.Library": "1.0.0-rc2-23901"
+     },
+    "frameworks": {
+        "netstandardapp1.5": {
+            "imports": "dnxcore50"
+        }
+    }
+}
+.NET Standard Library 是一个总括型的 NuGet Package，其内包含了这些类库包：
+
+    Microsoft.DotNet.CoreHost
+    NETStandard.Platform
+    System.Collections.Concurrent
+    System.Linq
+    System.Runtime.Numerics
+    System.Text.RegularExpressions
+
+其中的 NETStandard.Platform 也是一个总括型包，包含了下列类库包：
+
+    Microsoft.NETCore.Platforms
+    Microsoft.NETCore.Runtime
+    Microsoft.Win32.Primitives
+    System.AppContext
+    System.Collections
+    System.Diagnostics.Debug
+    System.Diagnostics.Tools
+    System.Diagnostics.Tracing
+    System.Globalization
+    System.Globalization.Calendars
+    System.IO
+    System.IO.FileSystem
+    System.IO.FileSystem.Primitives
+    System.Net.Primitives
+    System.Net.Sockets
+    System.Reflection
+    System.Reflection.Extensions
+    System.Reflection.Primitives
+    System.Reflection.TypeExtensions
+    System.Runtime
+    System.Runtime.Extensions
+    System.Runtime.Handles
+    System.Runtime.InteropServices
+    System.Runtime.InteropServices.RuntimeInformation
+    System.Text.Encoding
+    System.Text.Encoding.Extensions
+    System.Threading
+    System.Threading.Tasks
+    System.Threading.Timer
+
+开发人员只需要使用 NETStandard.Library 就能加入所有必要的 .NET Core 类库参考，但若不需要这么多组件，也可以只加入特定的包即可，不一定都要加入 NETStandard.Library。
+应用程序类型
+编辑
+.NET Core 基于跨平台能力，并没有将与 GUI 高度相关的 API 移植到 .NET Core 内，因此像是Windows Forms或是Windows Presentation Foundation(WPF) 并未移植到 .NET Core。.NET Core 支持控制台应用程序 (Console Application) 以及类库 (Class Library) 类型的项目。
+不过微软在其Universal Windows Platform(UWP) 开发平台使用了 .NET Core [7]  ，并且利用 .NET Native 技术将其性能提升至十分接近原生码的速度。
+ASP.NET Core 则以控制台应用程序驱动其托管环境 Kestrel Server 以支持 ASP.NET Core 程序的运行。
+.NET CLI
+.NET CLI (Command-Line Interface) 指令列工具是 .NET Core 处理建造、运行与编辑工作的主要工具 [8]  ，有几个主要的动作：
+指令	帮助
+dotnet new	产生新的基本 .NET 项目内容 (包含 project.json、Program.cs 以及 NuGet.config)
+dotnet restore	还原所参考的 NuGet 包
+dotnet build	建造 .NET 项目
+dotnet publish	产生可发行的 .NET 项目 (包含所属的 Runtime)
+dotnet run	编译与立即运行 .NET 项目 (较适用于 exe 型项目)
+dotnet repl	引导交互式的对话
+dotnet pack	将项目的产出封装成 NuGet 包
+关系
+编辑
+.NET Core 经常会拿来与其他平台做类比，尤其是它的源头 .NET Framework 以及另一个相似性质的开源平台 Mono。
+.NET Framework
+据微软的帮助，.NET Core 和 .NET Framework 是子集 (Subset) 与超集 (Superset) 的关系，.NET Core 将会实现出部分的 .NET Framework 功能 (基本上是不含用户界面的部分)，例如 JIT (.NET Core 采用 RyuJIT)、垃圾收集器 (GC) 以及类型 (包含基本类型以及泛型类型等) [9]  。未来 .NET Framework 和 .NET Core 也将会是各自发展，但它们也会同时使用彼此的功能，例如 .NET Compiler Platform 与 RyuJIT 等技术。
+Mono
+Mono 是另一个已发展许久的 .NET Framework 跨平台开源版本，基本上并不隶属微软官方，而是由社区的力量所主导，自成一个生态系统，也开发出了像Xamarin这样的跨平台.NET移动应用，.NET Core 与 Mono 未来会是合作的关系，Mono 仍会维持社区力量的维护与发展，而 .NET Core 则会以官方角度来进行发展，两边也会一起进行彼此功能上的增进 [9]  。
+与 ASP.NET Core 的关系
+.NET Core 与 ASP.NET Core 的关系其实一开始并不是主从关系 [10]  ，ASP.NET Core 的开发初期 (ASP.NET 5) .NET Core 还没有开始起跑，因此 ASP.NET Core 当时有自己的运行期与工具，一开始称为 Project K，后来改为 DNX (.NET Execution Environment)，DNX 本身就具有可独立运作的运行能力，不需要依赖 .NET Core 运行，但是这样会变成 .NET Core 和 ASP.NET Core 双头马车的现象，在 .NET Core 逐渐成熟之后，微软也决定要将这两个各自独立发展的产品线集成在一起，DNX 也将因改用 .NET Core 运行期而终止开发，DNX 的功能将由 .NET Core 以及旗下的 .NET CLI 接替提供，集成后的版本将在 1.0 RC2 时发布。
+支持操作系统
+编辑
+.NET Core 的 1.0 版本将支持下列操作系统：
+Windows 客户端	7 SP1~10	x64, x86	
+Windows 服务器	R2 SP1~Windows Server 2016	x64, x86	全功能版、Server Core 与 Nano Server (Windows Server 2016 Only)
+Debian	8.2	x64	
+Red Hat Enterprise Linux	7.2	x64	
+Fedora	23	x64	
+Ubuntu	14.04 LTS, 16.04 LTS	x64	
+Linux Mint	17	x64	
+OpenSUSE	13.2	x64	
+Oracle Linux	7.1	x64	
+CentOS	7.1	x64	
+Mac OSX	10.11 (EI Capitan)	x64	
+
+参考资料
+
+        1.
+          
+        Overview of .NET Implementations  ．github[引用日期2016-10-08]
+        2.
+          
+        2.0 2.1 NET Core Roadmap  ．github[引用日期2016-10-08]
+        3.
+          
+        Generate your API documentation with DocFX  ．github[引用日期2016-10-08]
+        4.
+          
+        JIT Compiler Structure  ．github[引用日期2016-10-08]
+        5.
+          
+        LLILC Architecture Overview  ．github[引用日期2016-10-08]
+        6.
+          
+        Announcing .NET Core and ASP.NET 5 RC  ．msdn[引用日期2016-10-08]
+        7.
+          
+        .NET and Universal Windows Platform Development  ．msdn[引用日期2016-10-08]
+        8.
+          
+        Intro to .NET Core CLI  ．github[引用日期2016-10-08]
+        9.
+          
+        9.0 9.1 .NET Core Home  ．github[引用日期2016-10-08]
+        10.
+          
+        About .NET Core  ．github[引用日期2016-10-08]
+

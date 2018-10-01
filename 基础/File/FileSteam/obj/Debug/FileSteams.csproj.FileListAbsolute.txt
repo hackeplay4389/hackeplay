@@ -1,0 +1,6 @@
+C:\Users\17100\Desktop\基础\File\FileSteam\bin\Debug\FileSteam.exe.config
+C:\Users\17100\Desktop\基础\File\FileSteam\bin\Debug\FileSteam.exe
+C:\Users\17100\Desktop\基础\File\FileSteam\bin\Debug\FileSteam.pdb
+C:\Users\17100\Desktop\基础\File\FileSteam\obj\Debug\FileSteam.exe
+C:\Users\17100\Desktop\基础\File\FileSteam\obj\Debug\FileSteam.pdb
+C:\Users\17100\Desktop\基础\File\FileSteam\obj\Debug\FileSteams.csprojResolveAssemblyReference.cache

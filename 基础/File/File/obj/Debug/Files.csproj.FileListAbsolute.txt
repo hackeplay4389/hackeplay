@@ -1,0 +1,6 @@
+C:\Users\17100\Desktop\基础\File\File\obj\Debug\Files.csprojResolveAssemblyReference.cache
+C:\Users\17100\Desktop\基础\File\File\bin\Debug\File.exe.config
+C:\Users\17100\Desktop\基础\File\File\bin\Debug\File.exe
+C:\Users\17100\Desktop\基础\File\File\bin\Debug\File.pdb
+C:\Users\17100\Desktop\基础\File\File\obj\Debug\File.exe
+C:\Users\17100\Desktop\基础\File\File\obj\Debug\File.pdb

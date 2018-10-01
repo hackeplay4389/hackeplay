@@ -1,0 +1,6 @@
+C:\Users\17100\Desktop\基础\String\String_01\bin\Debug\String_01.exe.config
+C:\Users\17100\Desktop\基础\String\String_01\bin\Debug\String_01.exe
+C:\Users\17100\Desktop\基础\String\String_01\bin\Debug\String_01.pdb
+C:\Users\17100\Desktop\基础\String\String_01\obj\Debug\ToCharArray.csprojResolveAssemblyReference.cache
+C:\Users\17100\Desktop\基础\String\String_01\obj\Debug\String_01.exe
+C:\Users\17100\Desktop\基础\String\String_01\obj\Debug\String_01.pdb

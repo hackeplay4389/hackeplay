@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToCharArray", "String_01\ToCharArray.csproj", "{64B3AC6B-86BB-486E-9D58-AA05457B41C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contiant", "Contiant\Contiant.csproj", "{4A70C01C-94E0-45FB-9D80-49DD8C16163C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "里氏转换法", "里氏转换法\里氏转换法.csproj", "{96F50F5A-ADF8-4253-A0C5-A76ED25E8B7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64B3AC6B-86BB-486E-9D58-AA05457B41C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64B3AC6B-86BB-486E-9D58-AA05457B41C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64B3AC6B-86BB-486E-9D58-AA05457B41C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64B3AC6B-86BB-486E-9D58-AA05457B41C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A70C01C-94E0-45FB-9D80-49DD8C16163C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A70C01C-94E0-45FB-9D80-49DD8C16163C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A70C01C-94E0-45FB-9D80-49DD8C16163C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A70C01C-94E0-45FB-9D80-49DD8C16163C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96F50F5A-ADF8-4253-A0C5-A76ED25E8B7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96F50F5A-ADF8-4253-A0C5-A76ED25E8B7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96F50F5A-ADF8-4253-A0C5-A76ED25E8B7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96F50F5A-ADF8-4253-A0C5-A76ED25E8B7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

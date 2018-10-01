@@ -1,0 +1,5 @@
+C:\Users\17100\Desktop\基础\String\Contiant\bin\Debug\Contiant.exe.config
+C:\Users\17100\Desktop\基础\String\Contiant\bin\Debug\Contiant.exe
+C:\Users\17100\Desktop\基础\String\Contiant\bin\Debug\Contiant.pdb
+C:\Users\17100\Desktop\基础\String\Contiant\obj\Debug\Contiant.exe
+C:\Users\17100\Desktop\基础\String\Contiant\obj\Debug\Contiant.pdb

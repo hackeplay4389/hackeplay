@@ -1,0 +1,6 @@
+C:\Users\17100\Desktop\基础\File\SteamReader_SteamWriter\bin\Debug\SteamReader_SteamWriter.exe.config
+C:\Users\17100\Desktop\基础\File\SteamReader_SteamWriter\bin\Debug\SteamReader_SteamWriter.exe
+C:\Users\17100\Desktop\基础\File\SteamReader_SteamWriter\bin\Debug\SteamReader_SteamWriter.pdb
+C:\Users\17100\Desktop\基础\File\SteamReader_SteamWriter\obj\Debug\SteamReader_SteamWriter.csprojResolveAssemblyReference.cache
+C:\Users\17100\Desktop\基础\File\SteamReader_SteamWriter\obj\Debug\SteamReader_SteamWriter.exe
+C:\Users\17100\Desktop\基础\File\SteamReader_SteamWriter\obj\Debug\SteamReader_SteamWriter.pdb
