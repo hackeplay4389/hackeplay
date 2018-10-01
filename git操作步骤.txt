@@ -1,0 +1,19 @@
+第一步，初始化本地仓库
+git init
+
+第二步，查看一下本地仓库状态
+git status
+
+第三步,添加文件到本地仓库，
+git add . （第一次添加）
+git add "文件名称.后缀"（不是第一次添加）
+
+第四步，添加文件到缓存区
+git commit -m "说明"
+
+第五步，关联远程仓库（如果不是第一次使用请忽略本次操作）
+git remote add origin git仓库地址
+
+第六步，上传到远程仓库
+git push -u origin master(第一次使用上传主分支)
+git push master（不是第一次上传）
